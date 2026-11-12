@@ -1,0 +1,395 @@
+/* ============================================================
+   RoutePulse — Layout Styles
+   App shell, Sidebar, Topbar
+   ============================================================ */
+
+/* ── App shell ──────────────────────────────────────────────── */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  background:
+    radial-gradient(ellipse at 74% -20%, rgba(22, 199, 154, 0.07), transparent 34%),
+    var(--bg);
+}
+
+/* ── Sidebar ────────────────────────────────────────────────── */
+.sidebar {
+  width: 252px;
+  flex: 0 0 252px;
+  background: #0e1a29;
+  border-right: 1px solid var(--line);
+  padding: 27px 17px 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  transition: width 0.25s;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 10px 35px;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--mint);
+  color: #08251e;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 24px var(--mint-glow);
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font: 700 21px 'Space Grotesk';
+  letter-spacing: -1px;
+  color: #f5f8fa;
+  line-height: 1;
+}
+
+.brand-name span { color: var(--mint); }
+
+.brand-tag {
+  font-size: 8px;
+  letter-spacing: 1.8px;
+  color: #74899c;
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+/* Admin badge in sidebar */
+.sidebar-admin-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--violet);
+  background: var(--violet-dim);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  padding: 4px 8px;
+  border-radius: 20px;
+  margin-bottom: 3px;
+}
+
+/* Workspace switcher */
+.workspace-label,
+.nav-label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: #667d91;
+  padding: 0 10px 10px;
+}
+
+.workspace-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #17283a;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 10px;
+  margin: 0 1px 31px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.workspace-switch:hover { background: #1c3047; }
+
+.workspace-icon {
+  width: 31px;
+  height: 31px;
+  background: #254a4a;
+  color: #73e5c1;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.workspace-icon.admin-icon {
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--violet);
+}
+
+.workspace-switch .ws-info { display: grid; gap: 2px; flex: 1; }
+.workspace-switch strong  { font-size: 11px; color: var(--text); }
+.workspace-switch small   { font-size: 9px;  color: var(--muted); }
+.workspace-switch > svg   { color: #7890a4; flex-shrink: 0; }
+
+/* Nav */
+.nav-label { padding-bottom: 9px; }
+.nav-list  { display: grid; gap: 5px; }
+
+.nav-item {
+  height: 43px;
+  border: 0;
+  background: transparent;
+  color: #8fa2b5;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  text-align: left;
+  font-size: 12px;
+  transition: background 0.18s, color 0.18s;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-item:hover { background: #17283a; color: var(--text); }
+
+.nav-item.active {
+  background: rgba(22, 199, 154, 0.13);
+  color: #54e0b5;
+  font-weight: 700;
+  box-shadow: inset 2px 0 var(--mint);
+}
+
+.nav-item.admin-active {
+  background: var(--violet-dim);
+  color: var(--violet);
+  box-shadow: inset 2px 0 var(--violet);
+}
+
+.nav-item span { flex: 1; }
+
+.nav-live {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 0 4px rgba(22, 199, 154, 0.12);
+  animation: pulse 2s ease infinite;
+}
+
+/* Sidebar bottom */
+.sidebar-bottom { margin-top: auto; }
+
+.help-card {
+  background: linear-gradient(145deg, #1a3544, #172739);
+  border: 1px solid #2b4a58;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 0 1px 17px;
+}
+
+.help-icon {
+  width: 28px;
+  height: 28px;
+  background: #244e4b;
+  color: #7ce9c7;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 9px;
+}
+
+.help-card strong { font-size: 11px; color: var(--text); }
+.help-card p { font-size: 10px; color: #91a6b8; line-height: 1.55; margin: 5px 0 10px; }
+.help-card button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #65dfba;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-item.settings { margin-bottom: 12px; }
+
+.profile-row {
+  border-top: 1px solid var(--line);
+  padding: 16px 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #b7a4ee;
+  color: #261d43;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.profile-avatar.admin-avatar {
+  background: var(--violet);
+  color: #1a0e38;
+}
+
+.profile-row .pr-info { display: grid; gap: 3px; flex: 1; }
+.profile-row strong  { font-size: 11px; color: var(--text); }
+.profile-row small   { font-size: 9px;  color: var(--muted); }
+.profile-row > svg   { color: #7890a4; }
+
+/* ── Main content ───────────────────────────────────────────── */
+.main-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Topbar ─────────────────────────────────────────────────── */
+.topbar {
+  height: 70px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 38px;
+  background: rgba(14, 26, 41, 0.78);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 11px;
+  color: #8296a9;
+}
+
+.breadcrumb strong { color: #dce6ec; font-weight: 600; }
+
+.top-actions { display: flex; align-items: center; gap: 17px; }
+
+.search-box {
+  height: 34px;
+  width: 205px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 9px;
+  color: #8094a8;
+  font-size: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.search-box:hover { border-color: rgba(22, 199, 154, 0.3); }
+.search-box kbd {
+  margin-left: auto;
+  font-size: 9px;
+  border: 1px solid #34485a;
+  border-radius: 4px;
+  padding: 2px 4px;
+  color: #a6b5c1;
+}
+
+.icon-button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #152438;
+  display: grid;
+  place-items: center;
+  color: #a8b9c7;
+  position: relative;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.icon-button:hover { border-color: rgba(22, 199, 154, 0.35); color: var(--mint-light); }
+
+.notification i {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--amber);
+  border-radius: 50%;
+  right: 7px;
+  top: 6px;
+  border: 1px solid #152438;
+}
+
+.top-divider {
+  height: 24px;
+  width: 1px;
+  background: var(--line);
+}
+
+.date-chip {
+  font-size: 10px;
+  color: #a3b4c1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* ── Page wrap ──────────────────────────────────────────────── */
+.page-wrap {
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 30px 38px 24px;
+  width: 100%;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1150px) {
+  .sidebar       { width: 220px; flex-basis: 220px; }
+  .page-wrap     { padding: 25px 24px; }
+  .topbar        { padding: 0 24px; }
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 68px;
+    flex-basis: 68px;
+    padding: 22px 10px;
+  }
+  .brand > div:last-child,
+  .workspace-label,
+  .workspace-switch .ws-info,
+  .workspace-switch > svg,
+  .nav-label,
+  .nav-item span,
+  .nav-live,
+  .help-card,
+  .profile-row .pr-info,
+  .profile-row > svg,
+  .sidebar-admin-badge { display: none; }
+
+  .brand      { padding: 0 5px 32px; }
+  .brand-mark { width: 38px; }
+  .workspace-switch { justify-content: center; padding: 8px; margin-bottom: 24px; }
+  .nav-item   { justify-content: center; padding: 0; }
+  .nav-item.settings { display: flex; }
+  .profile-row { justify-content: center; padding: 14px 0 0; }
+}
+
+@media (max-width: 600px) {
+  .topbar { height: 58px; padding: 0 15px; }
+  .search-box, .top-divider, .date-chip { display: none; }
+  .page-wrap { padding: 22px 14px; }
+  .breadcrumb { font-size: 10px; }
+}

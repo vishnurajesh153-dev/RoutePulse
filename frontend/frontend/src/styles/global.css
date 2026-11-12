@@ -1,0 +1,124 @@
+/* ============================================================
+   RoutePulse — Global Styles
+   Design tokens, reset, typography, shared animations
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* ── Design tokens ──────────────────────────────────────────── */
+:root {
+  /* Surfaces */
+  --bg:        #0b1420;
+  --navy:      #101c2c;
+  --panel:     #142235;
+  --panel2:    #182a3e;
+  --panel3:    #17283b;
+
+  /* Borders */
+  --line:      rgba(191, 211, 225, 0.11);
+  --line-soft: rgba(191, 211, 225, 0.07);
+
+  /* Text */
+  --text:      #eaf1f5;
+  --text-dim:  #c5d6e1;
+  --muted:     #8fa2b5;
+  --subtle:    #5a7389;
+
+  /* Accents */
+  --mint:       #16c79a;
+  --mint-light: #4bdfb5;
+  --mint-dim:   rgba(22, 199, 154, 0.12);
+  --mint-glow:  rgba(22, 199, 154, 0.25);
+
+  --amber:      #ffb547;
+  --amber-dim:  rgba(255, 181, 71, 0.12);
+
+  --violet:     #a78bfa;
+  --violet-dim: rgba(167, 139, 250, 0.12);
+  --violet-glow:rgba(167, 139, 250, 0.25);
+
+  --danger:     #f87171;
+  --danger-dim: rgba(248, 113, 113, 0.1);
+
+  --blue:       #60a5fa;
+  --blue-dim:   rgba(96, 165, 250, 0.12);
+
+  --white:      #f4f8fa;
+}
+
+/* ── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  min-width: 320px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea { font: inherit; }
+button  { cursor: pointer; color: inherit; border: none; background: none; }
+a       { color: var(--mint); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img, svg { display: block; }
+
+/* ── Loading / spinner ──────────────────────────────────────── */
+.loading-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--line);
+  border-top-color: var(--mint);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ── Utility ────────────────────────────────────────────────── */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
